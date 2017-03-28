@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{font-family:sans-serif}
+th, td {
+    padding: 7px;
+}
+</style>
+<title>Solving MQ challenges</title>
+</head>
+<body>
+
+<h1>Introduction</h1>
+
+<font size="4">
+In April 2015, 
+the Kyushu University and ISIT announced the
+<a href="https://www.mqchallenge.org/">Fukuoka MQ challenge</a>
+as a challenge for solving multivariate polynomial systems. 
+The challenge consists of 6 types of random systems, 
+where each type is either overdetermined or underdetermined and over either 
+F<sub>2</sub>, 
+F<sub>31</sub>, 
+or F<sub>256</sub>.
+In this project we try to solve as many of these systems as possible. 
+</font>
+
+<h1>Results</h1>
+
+<font size="4">
+<p>
+The following table shows the largest systems (with m equations and n variables) we solved by January 22, 2016.
+</p>
+<table border="1">
+  <tr><td align="right">type</td> <td align="right">field          </td> <td align="right"> m   </td> <td align="right"> n  </td> <td align="right">  time </td> <td align="right"> machine </td> <td align="right"> algorithm</td> </tr>
+  <tr><td align="right">&#8544   </td> <td align="right">F<sub>2</sub>  </td> <td align="right"> 132 </td> <td align="right"> 66 </td> <td align="right">  7 days 19 hours 50 minutes </td> <td align="right"> Rivyera, 128 Spartan 6 FPGAs </td> <td align="right"> Gray-code enumeration</td></tr>
+  <tr><td align="right">&#8546 </td> <td align="right">F<sub>31</sub> </td> <td align="right">  70 </td> <td align="right"> 35 </td> <td align="right"> 48 days 23 hours 32 minutes </td> <td align="right">      4 x AMD Opteron 6282 SE </td> <td align="right"> eXtended Linearization (XL)</td></tr>
+  <tr><td align="right">&#8547  </td> <td align="right">F<sub>2</sub>  </td> <td align="right">  66 </td> <td align="right"> 99 </td> <td align="right">  3 days 21 hours 9 minutes </td> <td align="right"> Rivyera, 128 Spartan 6 FPGAs </td> <td align="right"> Gray-code enumeration</td></tr>
+</table>
+</font>
+
+<h1>Software</h1>
+
+<font size="4">
+An implementation for the Gray-code enumeration algorithm is available 
+<a href="http://www.lifl.fr/~bouillag/fes/index.html">here</a>
+as an extension package for the 
+<a href="http://www.sagemath.org/">Sage computer algebra system</a>.
+<br>
+The FPGA code we actually used is available 
+<a href=" http://www.polycephaly.org/projects/forcemq/index.shtml">here</a>.
+</font>
+
+<h1>Slides</h1>
+
+The slides for the talk at the hot-topic session of PQCrypto 2016 can be found
+<a href="../slides/breaking-mq.pdf">here</a>.
+
+<h1>Papers</h1>
+
+<font size="4">
+<b>Fast Exhaustive Search for Quadratic Systems in F<sub>2</sub> on FPGAs.</b><br>
+<font color="#707070">Charles Bouillaguet, Chen-Mou Cheng, Tung Chou, Ruben Niederhagen, Bo-Yin Yang.</font> <i>SAC 2013</i>. [<a href="../papers/forcemp-fpga.pdf">pdf</a>]
+<br><br>
+
+<b>Solving Quadratic Equations with XL on Parallel Architectures.</b><br>
+<font color="#707070">Chen-Mou Cheng, Tung Chou, Ruben Niederhagen, Bo-Yin Yang.</font> <i>CHES 2012</i>. [<a href="../papers/parallel-xl.pdf">pdf</a>]
+<br><br>
+
+<b>Fast Exhaustive Search for Polynomial Systems in F<sub>2</sub>.</b><br>
+<font color="#707070">Charles Bouillaguet, Hsieh-Chung Chen, Chen-Mou Cheng, Tung Chou, Ruben Niederhagen, Adi Shamir, Bo-Yin Yang.</font> <i>CHES 2010</i>. [<a href="../papers/forcemp.pdf">pdf</a>]
+<br><br>
+</font>
+
+<h1>Contributors</h1>
+
+<font size="4">
+<ul>
+<li>
+<a href="http://www.win.tue.nl/~tchou/">Tung Chou</a>,
+Technische Universiteit Eindhoven, the Netherlands
+</li>
+<li>
+<a href="http://www.polycephaly.org/">Ruben Niederhagen</a>,
+Technische Universiteit Eindhoven, the Netherlands
+</li>
+<li>
+<a href="http://www.iis.sinica.edu.tw/pages/byyang/">Bo-Yin Yang</a>,
+Academia Sinica, Taiwan.
+</li>
+</ul>
+</font>
+
+</body>
+</html>
+

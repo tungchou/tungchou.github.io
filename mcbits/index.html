@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{font-family:sans-serif}
+th, td {
+    padding: 7px;
+}
+</style>
+<title>McBits</title>
+</head>
+<body>
+
+<h1>Software</h1>
+
+The first version for the "new" McBits software is now available <a href="../code/mcbits_new.tar.gz">here</a>.
+The code length is 2^12 (using GF(2^12)). 
+The number of errors is 62. 
+The public key size is 311736 bytes.
+The secret key size is 5984 bytes.
+The ciphertext overhead is 109 bytes.
+The script <a href="https://bitbucket.org/cbcrypto/isdfq/src">isdfq.gp</a>
+(by <a href="https://christianepeters.wordpress.com">Christiane Peters</a>) 
+gives 2^157.49 bit ops to attack the system using information set decoding.
+<br><br>
+
+As opposed to the "old" McBits, this new McBits makes use of only internal parallelism. 
+The software is fully protected against timing attacks:
+key generation, encryption, and decryption are all constant-time.
+The implementation is purely in C (no assembly). 
+Only general-purpose 64-bit registers are used (no XMM/YMM). 
+The software is in the public domain.
+<br><br>
+
+Encrypting a short message now takes around 150000 Haswell cycles, 
+while decrypting a short message takes around 400000 Haswell cycles.
+The code seems improvable even without using vectorization or assembly programming.
+Our goal is to have a highly optimized implementation for some parameter set that achieves a 2^128 quantum security level.
+The current implementation is merely a start.
+
+<h1>Papers</h1>
+
+Our CHES 2013 paper is available <a href="../papers/mcbits.pdf">here</a>.
+
+<h1>Contributors</h1>
+
+<font size="4">
+<ul>
+<li>
+<a href="https://cr.yp.to/djb.html">Daniel J. Bernstein</a>,
+Technische Universiteit Eindhoven, the Netherlands
+</li>
+</ul>
+<ul>
+<li>
+<a href="http://www.win.tue.nl/~tchou/">Tung Chou</a>,
+Technische Universiteit Eindhoven, the Netherlands
+</li>
+</ul>
+<ul>
+<li>
+<a href="https://cryptojedi.org/peter/index.shtml">Peter Schwabe</a>,
+Radboud University Nijmegen, the Netherlands
+</li>
+</ul>
+</font>
+
+</body>
+</html>
+

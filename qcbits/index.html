@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{font-family:sans-serif}
+th, td {
+    padding: 7px;
+}
+</style>
+<title>QcBits</title>
+</head>
+<body>
+
+<h1>Introduction</h1>
+
+<font size="4">
+<p>
+In 2012, Misoczki, Tillich, Sendrier, and Barreto proposed to use quasi-cyclic moderate-density-parity-check (QC-MDPC) codes for the McEliece encryption system. 
+The main benefit of using QC-MDPC code is that it allows small key-sizes: 
+public keys take only 0.6 KB for 80-bit security and 1.2 KB for 128-bit security. 
+Since then, several implementation papers have been published. 
+However, almost none of them addresses the issue of timing attacks.
+</p><p>
+This webpage is dedicated for <strong>QcBits</strong> (pronounced "quick-bits"),
+a fully constant-time implementation of a QC-MDPC-code-based encryption scheme.
+Decryption takes 14,679,937 Cortex-M4 cycles using the implementation, 
+while the PQCrypto 2016 paper <i>"IND-CCA Secure Hybrid Encryption from QC-MDPC Niederreiter"</i> reports 18,416,012 (non-constant-time) cycles. 
+Regarding higher-end CPUs, decryption takes only 1,560,072 Haswell cycles, 
+while the previous (non-constant-time) record was 3,104,624 cycles.
+Such speed is achieved by combination of two techiniques: 
+1) performing each polynomial multiplication in F<sub>2</sub>[x]/(x<sup>n</sup>-1) and Z[x]/(x<sup>n</sup>-1) using a sequence of constant-time "rotations" and 
+2) bitslicing. 
+</p>
+</font>
+
+<h1>Software</h1>
+
+The current code for implementations "ref" and "clmul" can be found <a href="https://www.dropbox.com/sh/zxbu4xx8lj1rwf4/AABAW_h4tOno7VC2uZJhhb_Qa?dl=0">here</a>.
+The code is still kind of messy, and I plan to publish a "clean" version later.
+The code is in the public domain.
+
+<h1>Slides</h1>
+
+The slides for PQCrypto 2016 in Fukuoka, Japan is available <a href="../slides/qcbits.pdf">here</a>.
+
+<h1>Papers</h1>
+
+The paper is available <a href="../papers/qcbits.pdf">here</a>.
+
+<h1>Contributors</h1>
+
+<font size="4">
+<ul>
+<li>
+<a href="http://www.win.tue.nl/~tchou/">Tung Chou</a>,
+Technische Universiteit Eindhoven, the Netherlands
+</li>
+</ul>
+</font>
+
+</body>
+</html>
+

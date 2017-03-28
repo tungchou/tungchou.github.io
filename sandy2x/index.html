@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{font-family:sans-serif}
+th, td {
+    padding: 7px;
+}
+</style>
+<title>Sandy2x</title>
+</head>
+<body>
+
+<h1>Introduction</h1>
+
+<font size="4">
+Sandy2x is a Curve25519 implementation tailored for the Intel Sandy Bridge/Ivy Bridge microarchitectures.
+More precisely,
+Sandy2x includes implementations of the 1) <a href="http://cr.yp.to/ecdh.html">X25519</a> ECDH scheme and 2) <a href="http://ed25519.cr.yp.to/">Ed25519</a> digital signature scheme.
+While the previous implementations use the 64 x 64 -> 128-bit multiplier for field multiplications,
+Sandy2x uses a 2-way vectorized 32 x 32 -> 64-bit multiplier.
+</font>
+
+<h1>Download</h1>
+
+<font size="4">
+The code for fast X25519 shared-secret computation (and not-so-fast key-pair generation) is available <a href="../code/sandy2x.tar.gz">here</a>. 
+This code has been submitted to <a href="http://bench.cr.yp.to/supercop.html">SUPERCOP</a>.
+Fast key-pair generation and the code for Ed25519 will be made available in the following versions.
+</font>
+
+<h1>License</h1>
+
+<font size="4">
+All of the Sandy2x software is in the public domain.
+</font>
+
+<h1>Materials</h1>
+
+<font size="4">
+<b>Sandy2x: New Curve25519 Speed Records.</b><br>
+<font color="#707070">Tung Chou.</font> <i>SAC 2015</i>. [<a href="../papers/sandy2x.pdf">pdf</a>].
+<br>
+</font>
+
+<h1>Contributors</h1>
+
+<font size="4">
+<ul>
+<li>
+<a href="http://www.win.tue.nl/~tchou/">Tung Chou</a>,
+Technische Universiteit Eindhoven, the Netherlands
+</li>
+</ul>
+</font>
+
+</body>
+</html>
+
+
