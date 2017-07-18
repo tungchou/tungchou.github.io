@@ -13,34 +13,49 @@ th, td {
 
 <h1>Software</h1>
 
-The first version for the "new" McBits software is now available <a href="../code/mcbits_new.tar.gz">here</a>.
-The code length is 2^12 (using GF(2^12)). 
-The number of errors is 62. 
+This is the webpage for the "new" McBits software.
+As opposed to the "old" McBits, the new McBits makes use of only internal parallelism. 
+The software is fully protected against timing attacks:
+key generation, encryption, and decryption are all constant-time.
+The 2nd version of the software is now available <a href="../code/mcbits_new_2.0.tar.gz">here</a>. 
+This version includes three implementations for two parameter sets.
+<br><br>
+
+The implementation <b>m12_t62_simple</b> uses the parameters
+m=12 (for field size 2<sup>m</sup>), 
+n=4096 (code length), 
+t=62 (number of errors).
 The public key size is 311736 bytes.
-The secret key size is 5984 bytes.
+The secret key size is 5984 bytes (without compression).
 The ciphertext overhead is 109 bytes.
 The script <a href="https://bitbucket.org/cbcrypto/isdfq/src">isdfq.gp</a>
 (by <a href="https://christianepeters.wordpress.com">Christiane Peters</a>) 
-gives 2^157.49 bit ops to attack the system using information set decoding.
+gives 2<sup>157.49</sup> bit ops to attack the system using information set decoding.
 <br><br>
 
-As opposed to the "old" McBits, this new McBits makes use of only internal parallelism. 
-The software is fully protected against timing attacks:
-key generation, encryption, and decryption are all constant-time.
-The implementation is purely in C (no assembly). 
-Only general-purpose 64-bit registers are used (no XMM/YMM). 
+The implementations <b>m13_t128_sse</b> and <b>m13_t128_avx</b> use the parameters
+m=13, 
+n=8192, 
+t=128.
+The public key size is 1357824 bytes.
+The secret key size is 13008 bytes (without compression).
+The ciphertext overhead is 224 bytes.
+<a href="https://bitbucket.org/cbcrypto/isdfq/src">isdfq.gp</a>
+gives 2<sup>297.35</sup> bit ops.
+<br><br>
+
+Using the implementation <b>m13_t128_avx</b>,
+encrypting a short message now takes around 294000 Haswell cycles, 
+while decrypting a short message takes around 333000 Haswell cycles.
+<br><br>
+
 The software is in the public domain.
-<br><br>
-
-Encrypting a short message now takes around 150000 Haswell cycles, 
-while decrypting a short message takes around 400000 Haswell cycles.
-The code seems improvable even without using vectorization or assembly programming.
-Our goal is to have a highly optimized implementation for some parameter set that achieves a 2^128 quantum security level.
-The current implementation is merely a start.
 
 <h1>Papers</h1>
 
-Our CHES 2013 paper is available <a href="../papers/mcbits.pdf">here</a>.
+The CHES 2017 paper (for the "new" McBits) is available <a href="../papers/mcbits_revisited.pdf">here</a>.
+<br>
+The CHES 2013 paper (for the "old" McBits) is available <a href="../papers/mcbits.pdf">here</a>.
 
 <h1>Contributors</h1>
 
